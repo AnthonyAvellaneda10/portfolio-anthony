@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /api
+
+Sitemap: https://portafolio-anthony-avellaneda.vercel.app/sitemap.xml

@@ -1,0 +1,19 @@
+/* typed.css */
+.typed {
+    color: hsl(219, 69%, 56%);
+}
+
+.cursor {
+    color: hsl(219, 69%, 56%);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid hsl(219, 69%, 56%);
+    animation: typing 0.7s steps(40, end) infinite;
+    margin-left: 5px;
+}
+
+@keyframes typing {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

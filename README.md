@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💼 Hello, I'm Anthony Avellaneda! 👋
+## [View Live Demo 👀](https://portafolio-anthony-avellaneda.vercel.app/)
+### 💼 Responsive Personal Portfolio Website
 
-## Getting Started
+Welcome to my portfolio on GitHub. Here you can explore some of my projects and learn more about me and my programming skills.
 
-First, run the development server:
+Welcome to my portfolio on GitHub. Here you can explore some of my projects and learn more about me and my skills as **Angular**, **React**, **Java**, **JavaScript**, **TypeScript**, **Spring Boot**, **PostgreSQL** and **Git.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Featured projects
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### [Snap URL](https://snap-url.netlify.app/home)
+It is an innovative web application that simplifies the way you share links. With its intuitive interface, you can shorten long URLs and generate QR codes in a matter of seconds. Do you want to share content quickly and efficiently? SnapURL is your solution. Join the link shortening revolution.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### [SmartEngageBot: Chatbot & Email Marketing](https://magio-academy.netlify.app/)
+A solution driven application for Magio Academy, addressing the lack of timely communication with users and potential customers. With a chatbot that automatically responds to queries, it provides information about the company, its services and payment methods in multiple languages. Additionally, a subscription popup offers a discount coupon for courses, followed by a welcome email upon subscription, improving customer engagement and interest in company offerings.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to Contact Me
 
-## Learn More
+If you want to work with me on a project or just chat, don't hesitate to contact me!
 
-To learn more about Next.js, take a look at the following resources:
+- Email: [anthony.avellaneda.p@uni.pe](mailto:anthony.avellaneda.p@uni.pe)
+- LinkedIn: [Anthony Avellaneda Paitán](https://www.linkedin.com/in/AnthonyAvellanedaPaitán/)
+- Twitter: [**@TomStark08**](https://twitter.com/TomStark08)
+- WhatsApp: [+51 923 946 801](https://api.whatsapp.com/send?phone=51923946801)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## About me
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I'm a Systems Engineering student with a passion for solving problems using technology. I love learning new things and working in a team, and I like to contribute ideas and create a collaborative environment.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Thanks for visiting my portfolio! I hope you have enjoyed exploring my projects as much as I have enjoyed creating them. Feel free to connect with me and share your ideas.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Light mode 💡
+![preview img](public/screenshots/light_mode.png)
+
+### Dark mode 🌑
+![preview img](public/screenshots/dark_mode.png)
