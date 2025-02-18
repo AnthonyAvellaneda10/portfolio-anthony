@@ -63,10 +63,13 @@ export default async function Work() {
             <div key={index} className="group relative flex gap-x-5">
               <div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200">
                 <div className="relative z-10 size-6 flex justify-center items-center">
-                  <img
+                  <Image
                     className="shrink-0 size-6 text-gray-600 rounded-full"
                     src={exp.company.image}
                     alt={exp.company.name}
+                    width={20}
+                    height={20}
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -131,7 +134,12 @@ export default async function Work() {
                               alt={tech.alt}
                               width={16}
                               height={16}
-                              style={{ width: "16px", height: "16px", objectFit: "contain" }}
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                objectFit: "contain",
+                              }}
+                              loading="lazy"
                             />
                             {tech.name}
                           </li>

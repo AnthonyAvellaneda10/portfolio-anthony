@@ -10,6 +10,7 @@ const lora = Lora({
   subsets: ["latin"],
   display: "swap",
   variable: '--font-lora',
+  preload: false, // Esto pre-carga las fuentes
 });
 
 const roboto = Roboto({
@@ -18,6 +19,7 @@ const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
   variable: '--font-roboto',
+  preload: false, // Esto pre-carga las fuentes
 });
 
 export const metadata = {

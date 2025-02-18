@@ -77,7 +77,13 @@ export default function LayoutHome() {
           >
             <div className="download">
               Descargar CV
-              <img src="icons/cv_logo.webp" alt="" />
+              <Image 
+              src="/icons/cv_logo.webp" 
+              alt="Logo de descargar CV" 
+              width={35}
+              height={30}
+              priority
+              />
             </div>
           </a>
         </div>
@@ -89,22 +95,28 @@ export default function LayoutHome() {
               <Image
                 src="/profile/perfil_anthony.avif"
                 alt="Perfil de Anthony Avellaneda Paitán"
-                width={300} // Ancho en píxeles
-                height={400} // Alto en píxeles
+                width={900} // Ancho en píxeles
+                height={1200} // Alto en píxeles
                 style={{ width: "100%", height: "auto" }} // Estilo responsive
-                priority={true} // Prioridad de carga
+                priority
               />
             </div>
 
-            <img
-              src="icons/shape-wawes.svg"
+            <Image
+              src="/icons/shape-wawes.svg"
               alt=""
               className="home__shape-wawes"
+              width={200} // Ancho en píxeles
+              height={140} // Alto en píxeles
+              priority
             />
-            <img
-              src="icons/shape-circle.svg"
+            <Image
+              src="/icons/shape-circle.svg"
               alt=""
               className="home__shape-circle"
+              width={300} // Ancho en píxeles
+              height={300} // Alto en píxeles
+              priority
             />
           </div>
 

@@ -185,6 +185,7 @@ export default function Projects() {
                           height: "22px",
                           objectFit: "contain",
                         }}
+                        loading="lazy"
                       />
                     ))}
                   </div>

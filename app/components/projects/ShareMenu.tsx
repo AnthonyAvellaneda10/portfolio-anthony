@@ -161,6 +161,7 @@ export default function ShareMenu({
             width={24}
             height={24}
             style={{ objectFit: "contain" }}
+            loading="lazy"
           />
         </Link>
       </div>
