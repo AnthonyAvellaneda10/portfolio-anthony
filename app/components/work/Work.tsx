@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 async function fetchWorks() {
-  const workResponse = await fetch(`http://localhost:3000/api/work`);
+  const workResponse = await fetch(`${process.env.BACKEND_URL}/api/work`);
   const work = await workResponse.json();
 
   return {

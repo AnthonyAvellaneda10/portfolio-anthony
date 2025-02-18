@@ -92,6 +92,7 @@ export default function LayoutHome() {
                 width={300} // Ancho en píxeles
                 height={400} // Alto en píxeles
                 style={{ width: "100%", height: "auto" }} // Estilo responsive
+                priority={true} // Prioridad de carga
               />
             </div>
 

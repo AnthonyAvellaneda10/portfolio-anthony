@@ -23,8 +23,9 @@ interface Proyecto {
   technologies: { name: string; url: string }[];
 }
 
+
 async function fetchProjects() {
-  const res = await fetch("http://localhost:3000/api/projects");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects`);
   const projectsData = await res.json();
 
   // Add unique IDs to each project
@@ -154,6 +155,7 @@ export default function Projects() {
                     width={800}
                     height={540}
                     className="img-cover"
+                    loading="lazy"
                   />
                   <a download href={proyecto.mockup} className="btn-icon">
                     <IoDownloadOutline />
