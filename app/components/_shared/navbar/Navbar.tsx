@@ -5,7 +5,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import "./Navbar.css";
 
-import { BookOpen, Briefcase, House, Menu, MessageCircle, Moon, PanelsTopLeft, Sun, Trophy, X } from "lucide-react";
+import {
+  BookOpen,
+  Briefcase,
+  House,
+  Menu,
+  MessageCircle,
+  Moon,
+  PanelsTopLeft,
+  Sun,
+  Trophy,
+  X,
+} from "lucide-react";
 
 export default function Navbar() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -15,7 +26,9 @@ export default function Navbar() {
   // Inicializar tema desde localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("selected-theme");
-    const savedThemeTailwindCSS = localStorage.getItem("selected-theme-tailwindCSS");
+    const savedThemeTailwindCSS = localStorage.getItem(
+      "selected-theme-tailwindCSS"
+    );
     if (savedTheme === "dark" && savedThemeTailwindCSS === "dark") {
       document.body.classList.add("dark-theme");
       document.body.classList.add("dark");
@@ -28,17 +41,17 @@ export default function Navbar() {
     // Verificar si hay un hash en la URL al cargar la página
     const currentHash = window.location.hash.replace("#", "") || "home";
     setActiveSectionId(currentHash);
-  
+
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]");
       const scrollY = window.scrollY;
       let newActiveSectionId: string | null = null;
-  
+
       sections.forEach((section) => {
         const sectionId = section.getAttribute("id");
         const sectionTop = section.getBoundingClientRect().top + scrollY;
         const sectionHeight = section.clientHeight;
-  
+
         if (
           scrollY >= sectionTop - 50 &&
           scrollY < sectionTop + sectionHeight - 50
@@ -46,16 +59,16 @@ export default function Navbar() {
           newActiveSectionId = sectionId || null;
         }
       });
-  
+
       if (newActiveSectionId !== activeSectionId) {
         setActiveSectionId(newActiveSectionId);
-        
+
         // Actualizar la URL sin recargar la página
         const newUrl = newActiveSectionId ? `#${newActiveSectionId}` : "/";
         window.history.replaceState(null, "", newUrl);
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSectionId]); // Eliminamos la dependencia de activeSectionId para que solo se ejecute una vez al inicio
@@ -72,7 +85,10 @@ export default function Navbar() {
         document.body.classList.remove("dark");
       }
       localStorage.setItem("selected-theme", newTheme ? "dark" : "light");
-      localStorage.setItem("selected-theme-tailwindCSS", newTheme ? "dark" : "light");
+      localStorage.setItem(
+        "selected-theme-tailwindCSS",
+        newTheme ? "dark" : "light"
+      );
       return newTheme;
     });
   };
@@ -94,9 +110,9 @@ export default function Navbar() {
             <li className="nav__item">
               <Link
                 href="#home"
-                className={
-                  `nav__link ${activeSectionId === "home" ? "active-link" : ""}`
-                }
+                className={`nav__link ${
+                  activeSectionId === "home" ? "active-link" : ""
+                }`}
               >
                 <House className="w-5 h-5" />
                 Home
@@ -105,9 +121,9 @@ export default function Navbar() {
             <li className="nav__item">
               <Link
                 href="#projects"
-                className={
-                  `nav__link ${activeSectionId === "projects" ? "active-link" : ""}`
-                }
+                className={`nav__link ${
+                  activeSectionId === "projects" ? "active-link" : ""
+                }`}
               >
                 <PanelsTopLeft className="w-5 h-5" />
                 Proyectos
@@ -116,9 +132,9 @@ export default function Navbar() {
             <li className="nav__item">
               <Link
                 href="#work"
-                className={
-                  `nav__link ${activeSectionId === "work" ? "active-link" : ""}`
-                }
+                className={`nav__link ${
+                  activeSectionId === "work" ? "active-link" : ""
+                }`}
               >
                 <Briefcase className="w-5 h-5" />
                 Trabajo
@@ -127,9 +143,9 @@ export default function Navbar() {
             <li className="nav__item">
               <Link
                 href="#skills"
-                className={
-                  `nav__link ${activeSectionId === "skills" ? "active-link" : ""}`
-                }
+                className={`nav__link ${
+                  activeSectionId === "skills" ? "active-link" : ""
+                }`}
               >
                 <Trophy className="w-5 h-5" />
                 Habilidades
@@ -138,9 +154,9 @@ export default function Navbar() {
             <li className="nav__item">
               <Link
                 href="#studies"
-                className={
-                  `nav__link ${activeSectionId === "studies" ? "active-link" : ""}`
-                }
+                className={`nav__link ${
+                  activeSectionId === "studies" ? "active-link" : ""
+                }`}
               >
                 <BookOpen className="w-5 h-5" />
                 Mis estudios
@@ -149,9 +165,9 @@ export default function Navbar() {
             <li className="nav__item">
               <Link
                 href="#contact"
-                className={
-                  `nav__link ${activeSectionId === "contact" ? "active-link" : ""}`
-                }
+                className={`nav__link ${
+                  activeSectionId === "contact" ? "active-link" : ""
+                }`}
               >
                 <MessageCircle className="w-5 h-5" />
                 Contacto
@@ -165,14 +181,19 @@ export default function Navbar() {
           </div>
         </div>
         <div className="nav__buttons">
-          <button onClick={toggleTheme} className="theme-toggle">
+          <button type="button" onClick={toggleTheme} className="theme-toggle">
             {isDarkTheme ? (
-                <Sun className="change-theme h-5 w-5" id="theme-button" />
-                ) : (
-                <Moon className="change-theme h-5 w-5" id="theme-button" />
+              <Sun className="change-theme h-5 w-5" id="theme-button" />
+            ) : (
+              <Moon className="change-theme h-5 w-5" id="theme-button" />
             )}
           </button>
-          <button onClick={toggleMenu} className="nav__toggle" id="nav-toggle">
+          <button
+            onClick={toggleMenu}
+            className="nav__toggle"
+            id="nav-toggle"
+            type="button"
+          >
             <Menu />
           </button>
         </div>

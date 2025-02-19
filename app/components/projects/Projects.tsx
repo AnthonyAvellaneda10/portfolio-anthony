@@ -157,7 +157,12 @@ export default function Projects() {
                     className="img-cover"
                     loading="lazy"
                   />
-                  <a download href={proyecto.mockup} className="btn-icon">
+                  <a 
+                  download 
+                  href={proyecto.mockup} 
+                  className="btn-icon"
+                  aria-label={`Descargar mockup de ${proyecto.appName}`}
+                  >
                     <IoDownloadOutline />
                   </a>
                 </div>
