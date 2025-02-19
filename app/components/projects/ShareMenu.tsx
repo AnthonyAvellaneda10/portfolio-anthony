@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { Share2 } from "lucide-react";
 import { FaFacebook, FaLinkedin, FaTelegram, FaWhatsapp } from "react-icons/fa";

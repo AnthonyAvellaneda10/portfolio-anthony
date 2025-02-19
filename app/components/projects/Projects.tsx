@@ -30,14 +30,14 @@ async function fetchProjects() {
 
   // Add unique IDs to each project
   const frontendProjects = projectsData.data.results.frontend.map(
-    (project: Object, index: number) => ({
+    (project: Proyecto, index: number) => ({
       ...project,
       id: `frontend-${index + 1}`,
     })
   );
 
   const fullstackProjects = projectsData.data.results.fullstack.map(
-    (project: Object, index: number) => ({
+    (project: Proyecto, index: number) => ({
       ...project,
       id: `fullstack-${index + 1}`,
     })

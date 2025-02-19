@@ -59,7 +59,7 @@ export default async function Work() {
         <span className="section__subtitle">💼👨🏻‍💻</span>
 
         <div className="about__container work-experience">
-          {work.map((exp: Experience, index: number) => (
+          {work.experiences.map((exp: Experience, index: number) => (
             <div key={index} className="group relative flex gap-x-5">
               <div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200">
                 <div className="relative z-10 size-6 flex justify-center items-center">

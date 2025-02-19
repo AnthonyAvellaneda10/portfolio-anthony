@@ -1,23 +1,21 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { BsTelegram, BsTwitterX } from "react-icons/bs";
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { Link } from "lucide-react";
 
 const QRCode = () => {
-  const generateQR = "https://portafolio-anthony-avellaneda.vercel.app";
   const shareName = "Anthony Avellaneda Paitán | Portafolio";
 
   const url = "https://portafolio-anthony-avellaneda.vercel.app";
   const message =
     "¡Echa un vistazo al increíble portafolio web de Anthony Avellaneda!";
-  const hashtags: string[] = [
-    "webdevelopment",
-    "webprojects",
-    "websiteportfolio",
-  ];
+  const hashtags = useMemo(
+    () => ["webdevelopment", "webprojects", "websiteportfolio"],
+    []
+  );
 
   const [facebookPortfolio, setFacebookPortfolio] = useState("");
   const [whatsappPortfolio, setWhatsappPortfolio] = useState("");
@@ -57,7 +55,7 @@ const QRCode = () => {
         url
       )}&text=${encodeURIComponent(message)}`
     );
-  }, []);
+  }, [hashtags]);
 
   const copyToClipboard = () => {
     if (inputRef.current) {

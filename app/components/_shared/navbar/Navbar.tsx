@@ -58,7 +58,7 @@ export default function Navbar() {
   
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Eliminamos la dependencia de activeSectionId para que solo se ejecute una vez al inicio
+  }, [activeSectionId]); // Eliminamos la dependencia de activeSectionId para que solo se ejecute una vez al inicio
 
   // Cambiar el tema
   const toggleTheme = () => {
