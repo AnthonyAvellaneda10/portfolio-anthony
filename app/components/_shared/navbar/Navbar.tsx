@@ -181,7 +181,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="nav__buttons">
-          <button type="button" onClick={toggleTheme} className="theme-toggle">
+          <button aria-label="Cambiar tema" type="button" onClick={toggleTheme} className="theme-toggle">
             {isDarkTheme ? (
               <Sun className="change-theme h-5 w-5" id="theme-button" />
             ) : (
@@ -193,6 +193,7 @@ export default function Navbar() {
             className="nav__toggle"
             id="nav-toggle"
             type="button"
+            aria-label="Mostrar menú de navegación"
           >
             <Menu />
           </button>
