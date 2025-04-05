@@ -1,7 +1,11 @@
 import Image from "next/image";
 
 async function fetchWorks() {
-  const workResponse = await fetch(`${process.env.BACKEND_URL}/api/work`);
+  const workResponse = await fetch(`${process.env.BACKEND_URL}/api/work`, {
+    headers: {
+      "x-origin": `${process.env.FRONTEND_URL}`,
+    }
+  });
   const work = await workResponse.json();
 
   return {
@@ -49,8 +53,41 @@ const formatDate = (
   return "";
 };
 
+const getComparableDate = (
+  date: Experience["startDate"] | Experience["endDate"]
+): Date => {
+  if (date === "Presente") {
+    return new Date(); // Para experiencias en curso, usamos la fecha actual
+  }
+  if (typeof date === "object" && date !== null) {
+    return new Date(date.year, date.month - 1);
+  }
+  return new Date(0);
+};
+
 export default async function Work() {
   const { work } = await fetchWorks();
+
+  // Ordenar las experiencias:
+  // - Si ambas están en curso, se ordena por startDate (más reciente primero)
+  // - Si solo una está en curso, se coloca primero
+  // - Si ambas están finalizadas, se ordena por endDate (más reciente primero)
+  const sortedExperiences = work.experiences.sort((a: Experience, b: Experience) => {
+    const aOngoing = a.endDate === "Presente";
+    const bOngoing = b.endDate === "Presente";
+
+    if (aOngoing && bOngoing) {
+      // Comparamos las fechas de inicio para trabajos en curso
+      return getComparableDate(b.startDate).getTime() - getComparableDate(a.startDate).getTime();
+    } else if (aOngoing) {
+      return -1;
+    } else if (bOngoing) {
+      return 1;
+    } else {
+      // Comparación de trabajos finalizados por fecha de finalización
+      return getComparableDate(b.endDate).getTime() - getComparableDate(a.endDate).getTime();
+    }
+  });
 
   return (
     <>
@@ -59,7 +96,7 @@ export default async function Work() {
         <span className="section__subtitle">💼👨🏻‍💻</span>
 
         <div className="about__container work-experience">
-          {work.experiences.map((exp: Experience, index: number) => (
+          {sortedExperiences.map((exp: Experience, index: number) => (
             <div key={index} className="group relative flex gap-x-5">
               <div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200">
                 <div className="relative z-10 size-6 flex justify-center items-center">

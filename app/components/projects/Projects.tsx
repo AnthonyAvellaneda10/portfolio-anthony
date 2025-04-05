@@ -217,9 +217,9 @@ export default function Projects() {
                       onCloseOthers={closeOtherMenus} // Cerrar otros menús
                     />
 
-                    {proyecto.sourceCode && (
+                    {proyecto.url && (
                       <a
-                        href={proyecto.sourceCode}
+                        href={proyecto.url}
                         target="_blank"
                         className="btn btn-primary"
                         aria-label={`Ver demo de ${proyecto.appName}`}

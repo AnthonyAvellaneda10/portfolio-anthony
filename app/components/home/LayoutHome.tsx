@@ -95,9 +95,9 @@ export default function LayoutHome() {
               <Image
                 src="/profile/perfil_anthony.avif"
                 alt="Perfil de Anthony Avellaneda Paitán"
-                width={900} // Ancho en píxeles
-                height={1200} // Alto en píxeles
-                style={{ width: "100%", height: "auto" }} // Estilo responsive
+                width={340} // Ancho en píxeles
+                height={453} // Alto en píxeles
+                style={{ width: "340px", height: "453px" }} // Estilo responsive
                 priority
               />
             </div>
