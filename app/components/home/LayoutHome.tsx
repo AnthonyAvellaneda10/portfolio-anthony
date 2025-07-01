@@ -71,7 +71,7 @@ export default function LayoutHome() {
         </div>
         <div className="text-center">
           <a
-            href="https://drive.google.com/file/d/18Fj5AnpRb_5RwN3GBHTDtqHfcQg78_8S/view"
+            href="https://drive.google.com/file/d/1xurkXOZmKmhr_FCQTbpOEoMioRYEPXkX/view"
             target="_blank"
             className="button"
           >
