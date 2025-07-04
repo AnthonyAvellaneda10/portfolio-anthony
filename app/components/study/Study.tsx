@@ -31,7 +31,7 @@ export default function Study() {
         <div>
           <h3 className="home__info-title">CRÉDITOS ACUMULADOS</h3>
 
-          <p className="home__info-description">212</p>
+          <p className="home__info-description">216</p>
         </div>
 
         <div>
