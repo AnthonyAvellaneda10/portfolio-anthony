@@ -1,4 +1,3 @@
-import Image from "next/image";
 import "./Study.css";
 
 export default function Study() {
