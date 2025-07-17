@@ -46,25 +46,6 @@ export default function Study() {
           <p className="home__info-description">2020 - 2024</p>
         </div>
       </div>
-
-      <div className="text-center mt-[20px]">
-        <a
-          href="https://drive.google.com/file/d/1PV5VYRhMaLrKH48NgmmqdxMfzHeiueJA/view"
-          target="_blank"
-          className="button academico btn-avance"
-        >
-          <div className="avance-curricular">
-            Avance Curricular
-            <Image
-              src="/icons/avance_academico.webp"
-              alt="Logo de Avance Curricular"
-              width={35}
-              height={30}
-              loading="lazy"
-            />
-          </div>
-        </a>
-      </div>
     </div>
   );
 }
