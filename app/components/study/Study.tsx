@@ -36,7 +36,7 @@ export default function Study() {
         <div>
           <h3 className="home__info-title">SITUACIÓN</h3>
 
-          <p className="home__info-description cycle-info">Egresado</p>
+          <p className="home__info-description cycle-info">Bachiller</p>
         </div>
 
         <div>
