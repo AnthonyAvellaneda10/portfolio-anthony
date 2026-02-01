@@ -92,7 +92,7 @@ export default async function Work() {
   return (
     <>
       <div className="container__section section__border">
-        <h2 className="section__title">Experiencia Laboral</h2>
+        <h2 className="section__title">Trabajo</h2>
         <span className="section__subtitle">💼👨🏻‍💻</span>
 
         <div className="about__container work-experience">
