@@ -8,8 +8,8 @@ export default function Contact() {
 
   return (
     <>
-      <h2 className="section__title">Contáctame</h2>
-      <span className="section__subtitle">Contáctame aquí</span>
+      <h2 className="section__title">Contacto</h2>
+      <span className="section__subtitle">💬📞</span>
 
       <div className="contact__container container__section grid section__border">
         <div className="contact__content">

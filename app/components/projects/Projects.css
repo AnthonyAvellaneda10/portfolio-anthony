@@ -43,3 +43,102 @@
   background-color: #000;
   color: white;
 }
+
+/* Skeleton Loader Styles */
+.skeleton {
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  border-radius: 5px;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.skeleton-tab {
+  width: 100px;
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+.skeleton-card {
+  height: 500px; /* Approximate height of project card */
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+}
+
+/* Fade-in Animation for Projects */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover Overlay Styles */
+.portfolio-card .card-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-card .card-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.portfolio-card .card-banner:hover::before {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-card .btn-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: white;
+  color: var(--jet);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 2;
+  border: none;
+  cursor: pointer;
+}
+
+.portfolio-card .card-banner:hover .btn-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.portfolio-card .btn-icon:hover {
+  background-color: var(--jet);
+  color: white;
+}

@@ -7,7 +7,7 @@ export default function Skills() {
   return (
     <>
       <h2 className="section__title">Habilidades</h2>
-      <span className="section__subtitle">Mis habilidades favoritas</span>
+      <span className="section__subtitle">🧠⚡</span>
 
       <div className="skills__container container__section grid section__border">
         {/* <!--==================== SKILLS 1 ====================--> */}
@@ -81,7 +81,7 @@ export default function Skills() {
             <div className="skills__data">
               <div className="skills__blob">
                 <Image
-                  src="/skills/angular-icon-1.svg"
+                  src="/svg/angular.svg"
                   alt="skills image"
                   width={40} // Ancho en píxeles
                   height={43} // Alto en píxeles
@@ -106,6 +106,21 @@ export default function Skills() {
               </div>
 
               <h3 className="skills__name">React</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/nextjs.svg"
+                  alt="skills image"
+                  width={40} // Ancho en píxeles
+                  height={36} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "40px", height: "36px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Next.js</h3>
             </div>
 
             <div className="skills__data">
@@ -176,6 +191,21 @@ export default function Skills() {
               </div>
 
               <h3 className="skills__name">Node.js</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/svg/express.svg"
+                  alt="skills image"
+                  width={40} // Ancho en píxeles
+                  height={40} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "40px", height: "40px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Express.js</h3>
             </div>
 
             <div className="skills__data">
