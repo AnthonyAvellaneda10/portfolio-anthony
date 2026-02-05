@@ -1,0 +1,113 @@
+{
+    "Navbar": {
+        "home": "Home",
+        "projects": "Projects",
+        "work": "Work",
+        "skills": "Skills",
+        "studies": "Studies",
+        "contact": "Contact"
+    },
+    "Home": {
+        "greeting": "Hi, I'm",
+        "role": "developer",
+        "description": "🚀 Enthusiastic about creating visually stunning and user-friendly websites 💻🎨! Passionate about implementing backend systems to ensure data security 🛡️. I love learning and improving my skills in the programming world 🌟.",
+        "downloadCV": "Download CV",
+        "cvUrl": "https://drive.google.com/file/d/18Fj5AnpRb_5RwN3GBHTDtqHfcQg78_8S/view"
+    },
+    "Typed": {
+        "greeting": "Hi, I'm",
+        "roles": [
+            "Anthony Avellaneda",
+            "web developer"
+        ]
+    },
+    "Study": {
+        "uni": "National University of Engineering (UNI)",
+        "uni_short": "UNI",
+        "center": "CENTER OF STUDIES",
+        "career_label": "MAJOR",
+        "career": "Systems Engineering",
+        "merit_label": "MERIT ORDER",
+        "merit": "Top 10%",
+        "credits_label": "ACCUMULATED CREDITS",
+        "situation_label": "STATUS",
+        "situation": "Bachelor",
+        "time_label": "TIME"
+    },
+    "Work": {
+        "title": "Work",
+        "subtitle": "My professional path",
+        "present": "Present",
+        "technologies": "Technologies:",
+        "months": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dic"
+        ]
+    },
+    "Projects": {
+        "title": "Projects",
+        "subtitle": "My recent work",
+        "viewMore": "View more",
+        "viewDemo": "View demo",
+        "gallery": "View gallery of",
+        "project": "Project"
+    },
+    "Skills": {
+        "title": "Skills",
+        "subtitle": "My technical knowledge"
+    },
+    "Contact": {
+        "title": "Contact",
+        "subtitle": "Leave me a message",
+        "writeMe": "Write me",
+        "leaveMessage": "Leave me a message",
+        "sendMessage": "Send me a message",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send message",
+        "sending": "Sending...",
+        "placeholderName": "Write your name",
+        "placeholderEmail": "Write your email",
+        "placeholderMessage": "Write your message",
+        "errorName": "Your full name is required",
+        "errorEmail": "Email is required",
+        "errorEmailInvalid": "Enter a valid email address",
+        "errorMessage": "Your message is required",
+        "success": "Message sent correctly 🤙🏻✅",
+        "errorSend": "Oops, it seems there was an error sending the message ❌😔",
+        "whatsappUrl": "https://api.whatsapp.com/send?phone=51923946801&text=Hi%20Anthony%20I'm%20interested%20in%20your%20portfolio%20and%20would%20like%20to%20talk%20to%20you%20%F0%9F%98%80"
+    },
+    "QRCode": {
+        "title": "Share",
+        "subtitle": "On social media",
+        "shareName": "Anthony Avellaneda Paitán | Portfolio",
+        "message": "Check out Anthony Avellaneda's amazing web portfolio!",
+        "copy": "Copy",
+        "copied": "Copied",
+        "link": "Link:"
+    },
+    "Footer": {
+        "role": "Systems Engineer",
+        "home": "Home",
+        "skills": "Skills",
+        "projects": "Projects",
+        "portfolio": "Portfolio",
+        "rights": "All rights reserved."
+    },
+    "LanguageSelector": {
+        "label": "Change language",
+        "en": "English",
+        "es": "Spanish"
+    }
+}
