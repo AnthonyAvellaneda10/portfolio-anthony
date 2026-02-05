@@ -1,12 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import "./Skills.css";
 import { PiBracketsCurlyBold } from "react-icons/pi";
 import { FaDesktop } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Skills() {
+  const t = useTranslations("Skills");
+
   return (
     <>
-      <h2 className="section__title">Habilidades</h2>
+      <h2 className="section__title">{t("title")}</h2>
       <span className="section__subtitle">🧠⚡</span>
 
       <div className="skills__container container__section grid section__border">

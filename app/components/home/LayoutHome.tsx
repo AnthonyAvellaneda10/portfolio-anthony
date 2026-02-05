@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import "./LayoutHome.css";
 import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
 import Typed from "../typed/Typed";
+import { useTranslations } from "next-intl";
 
 export default function LayoutHome() {
+  const t = useTranslations("Home");
+
   return (
     <div className="home_container container__section section__border header__home">
       <div className="content__home">
@@ -12,26 +17,20 @@ export default function LayoutHome() {
         <span className="blur"></span>
         <Typed />
         <span>
-          🚀 ¡Entusiasta por crear sitios web visualmente impresionantes y
-          fáciles de usar 💻🎨!
+          {t("description").split("🛡️")[0]}🛡️
         </span>
         <span>
-          Apasionado con la implementación de sistemas en el backend para
-          garantizar la seguridad de los datos 🛡️.
-        </span>
-        <span>
-          Me encanta aprender y mejorar mis habilidades en el área de la
-          programación 🌟.
+          {t("description").split("🛡️")[1]}
         </span>
 
         <div className="text-center mt-32">
           <a
-            href="https://drive.google.com/file/d/18Fj5AnpRb_5RwN3GBHTDtqHfcQg78_8S/view"
+            href={t("cvUrl")}
             target="_blank"
             className="button"
           >
             <div className="download">
-              Descargar CV
+              {t("downloadCV")}
               <Image 
               src="/icons/cv_logo.webp" 
               alt="Logo de descargar CV" 

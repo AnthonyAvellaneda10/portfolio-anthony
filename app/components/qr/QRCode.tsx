@@ -6,12 +6,14 @@ import { BsTelegram, BsTwitterX } from "react-icons/bs";
 import { FaFacebookF, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { Link } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 const QRCode = () => {
-  const shareName = "Anthony Avellaneda Paitán | Portafolio";
+  const t = useTranslations("QRCode");
+  const shareName = t("shareName");
 
   const url = "https://portafolio-anthony-avellaneda.vercel.app";
-  const message =
-    "¡Echa un vistazo al increíble portafolio web de Anthony Avellaneda!";
+  const message = t("message");
   const hashtags = useMemo(
     () => ["webdevelopment", "webprojects", "websiteportfolio"],
     []
@@ -24,8 +26,8 @@ const QRCode = () => {
   const [telegramPortfolio, setTelegramPortfolio] = useState("");
 
   const copyText = "https://goo.su/A0H2";
-  const [copyButtonText, setCopyButtonText] = useState("Copiar");
-  const inputRef = useRef<HTMLInputElement | null>(null); // 🔹 Definir el tipo correctamente
+  const [isCopied, setIsCopied] = useState(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     setFacebookPortfolio(
@@ -55,24 +57,24 @@ const QRCode = () => {
         url
       )}&text=${encodeURIComponent(message)}`
     );
-  }, [hashtags]);
+  }, [hashtags, message]);
 
   const copyToClipboard = () => {
     if (inputRef.current) {
-      inputRef.current.select(); // 🔹 Ahora no da error porque se definió el tipo correctamente
+      inputRef.current.select();
       document.execCommand("copy");
-      setCopyButtonText("Copiado");
-      setTimeout(() => setCopyButtonText("Copiar"), 3000);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 3000);
     }
   };
 
   const getHashtags = (hashtags: string[]): string =>
-    hashtags.map((tag: string) => `#${tag}`).join(" "); // 🔹 Tipos corregidos
+    hashtags.map((tag: string) => `#${tag}`).join(" ");
 
   return (
     <div className="contenedor-qr">
-      <h2 className="section__title">Comparte</h2>
-      <span className="section__subtitle">En redes sociales</span>
+      <h2 className="section__title">{t("title")}</h2>
+      <span className="section__subtitle">{t("subtitle")}</span>
 
       <div className="flex justify-center items-center">
         <QRCodeSVG
@@ -124,9 +126,8 @@ const QRCode = () => {
           </ul>
           <div className="field">
             <label htmlFor="inputField" className="sr-only">
-              Enlace:
+              {t("link")}
             </label>
-            {/* <i className="bx bx-link"></i> */}
             <Link className="w-7 ml-2" />
             <span className="border border-r border-[#e1e1e1] inline-block h-[20px]"></span>
             <input
@@ -137,7 +138,7 @@ const QRCode = () => {
               value={copyText}
             />
             <button onClick={copyToClipboard} className="copy">
-              {copyButtonText}
+              {isCopied ? t("copied") : t("copy")}
             </button>
           </div>
         </section>

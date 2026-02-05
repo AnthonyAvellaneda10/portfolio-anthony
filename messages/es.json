@@ -1,0 +1,113 @@
+{
+    "Navbar": {
+        "home": "Inicio",
+        "projects": "Proyectos",
+        "work": "Trabajo",
+        "skills": "Habilidades",
+        "studies": "Mis estudios",
+        "contact": "Contacto"
+    },
+    "Home": {
+        "greeting": "Hola, soy",
+        "role": "desarrollador",
+        "description": "🚀 ¡Entusiasta por crear sitios web visualmente impresionantes y fáciles de usar 💻🎨! Apasionado con la implementación de sistemas en el backend para garantizar la seguridad de los datos 🛡️. Me encanta aprender y mejorar mis habilidades en el área de la programación 🌟.",
+        "downloadCV": "Descargar CV",
+        "cvUrl": "https://drive.google.com/file/d/18Fj5AnpRb_5RwN3GBHTDtqHfcQg78_8S/view"
+    },
+    "Typed": {
+        "greeting": "Hola, soy",
+        "roles": [
+            "Anthony Avellaneda",
+            "desarrollador web"
+        ]
+    },
+    "Study": {
+        "uni": "Universidad Nacional de Ingeniería (UNI)",
+        "uni_short": "UNI",
+        "center": "CENTRO DE ESTUDIOS",
+        "career_label": "CARRERA",
+        "career": "Ingeniería de Sistemas",
+        "merit_label": "ORDEN DE MÉRITO",
+        "merit": "Décimo Superior",
+        "credits_label": "CRÉDITOS ACUMULADOS",
+        "situation_label": "SITUACIÓN",
+        "situation": "Bachiller",
+        "time_label": "TIEMPO"
+    },
+    "Work": {
+        "title": "Experiencia Laboral",
+        "subtitle": "Mi trayectoria profesional",
+        "present": "Presente",
+        "technologies": "Tecnologías:",
+        "months": [
+            "Ene",
+            "Feb",
+            "Mar",
+            "Abr",
+            "May",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dic"
+        ]
+    },
+    "Projects": {
+        "title": "Proyectos",
+        "subtitle": "Mis trabajos recientes",
+        "viewMore": "Ver más",
+        "viewDemo": "Ver demo",
+        "gallery": "Ver galería de",
+        "project": "Proyecto"
+    },
+    "Skills": {
+        "title": "Habilidades",
+        "subtitle": "Mis conocimientos técnicos"
+    },
+    "Contact": {
+        "title": "Contacto",
+        "subtitle": "Déjame un mensaje",
+        "writeMe": "Escríbeme",
+        "leaveMessage": "Déjame un mensaje",
+        "sendMessage": "Envíame un mensaje",
+        "name": "Nombres",
+        "email": "Correo",
+        "message": "Mensaje",
+        "send": "Enviar mensaje",
+        "sending": "Enviando...",
+        "placeholderName": "Escribe tus nombres",
+        "placeholderEmail": "Escribe tu correo",
+        "placeholderMessage": "Escribe tu mensaje",
+        "errorName": "Su nombre completo es requerido",
+        "errorEmail": "El correo es requerido",
+        "errorEmailInvalid": "Ingrese un correo electrónico válido",
+        "errorMessage": "Su mensaje es requerido",
+        "success": "Mensaje enviado correctamente 🤙🏻✅",
+        "errorSend": "Ups, parece que hubo un error al enviar el mensaje ❌😔",
+        "whatsappUrl": "https://api.whatsapp.com/send?phone=51923946801&text=Hola%20Anthony%2C%20me%20intereso%20mucho%20la%20p%C3%A1gina%20de%20tu%20portafolio%2C%20quisiera%20conversar%20contigo%20%F0%9F%98%80"
+    },
+    "QRCode": {
+        "title": "Comparte",
+        "subtitle": "En redes sociales",
+        "shareName": "Anthony Avellaneda Paitán | Portafolio",
+        "message": "¡Echa un vistazo al increíble portafolio web de Anthony Avellaneda!",
+        "copy": "Copiar",
+        "copied": "Copiado",
+        "link": "Enlace:"
+    },
+    "Footer": {
+        "role": "Ingeniero de Sistemas",
+        "home": "Inicio",
+        "skills": "Habilidades",
+        "projects": "Proyectos",
+        "portfolio": "Portafolio",
+        "rights": "Todos los derechos reservados."
+    },
+    "LanguageSelector": {
+        "label": "Cambiar idioma",
+        "en": "Inglés",
+        "es": "Español"
+    }
+}

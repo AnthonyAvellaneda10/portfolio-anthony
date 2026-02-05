@@ -1,8 +1,12 @@
 
-import "./ui/globals.css";
+import "../ui/globals.css";
 import { Lora, Roboto } from "next/font/google";
-import Navbar from "./components/_shared/navbar/Navbar";
-import Footer from "./components/_shared/footer/Footer";
+import Navbar from "../components/_shared/navbar/Navbar";
+import Footer from "../components/_shared/footer/Footer";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
 
 const lora = Lora({
   weight: ["400", "500", "600"],
@@ -10,7 +14,7 @@ const lora = Lora({
   subsets: ["latin"],
   display: "swap",
   variable: '--font-lora',
-  preload: false, // Esto pre-carga las fuentes
+  preload: false,
 });
 
 const roboto = Roboto({
@@ -19,7 +23,7 @@ const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
   variable: '--font-roboto',
-  preload: false, // Esto pre-carga las fuentes
+  preload: false,
 });
 
 export const metadata = {
@@ -73,18 +77,33 @@ export const metadata = {
 
 import { Toaster } from "react-hot-toast";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }) {
+  const {locale} = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as "en" | "es")) {
+    notFound();
+  }
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${lora.variable} ${roboto.variable}`}>
+    <html lang={locale} className={`${lora.variable} ${roboto.variable}`}>
       <body>
-        <Toaster position="top-center" reverseOrder={false} />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <Toaster position="top-center" reverseOrder={false} />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

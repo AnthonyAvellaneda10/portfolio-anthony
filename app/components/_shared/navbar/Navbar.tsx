@@ -2,8 +2,10 @@
 "use client"; // Necesario para usar hooks y eventos del navegador
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import "./Navbar.css";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import LanguageSelector from "./LanguageSelector";
 
 import {
   BookOpen,
@@ -19,6 +21,7 @@ import {
 } from "lucide-react";
 
 export default function Navbar() {
+  const t = useTranslations("Navbar");
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
@@ -109,68 +112,68 @@ export default function Navbar() {
           <ul className="nav__list grid">
             <li className="nav__item">
               <Link
-                href="#home"
+                href="/#home"
                 className={`nav__link ${
                   activeSectionId === "home" ? "active-link" : ""
                 }`}
               >
                 <House className="w-5 h-5" />
-                Inicio
+                {t("home")}
               </Link>
             </li>
             <li className="nav__item">
               <Link
-                href="#projects"
+                href="/#projects"
                 className={`nav__link ${
                   activeSectionId === "projects" ? "active-link" : ""
                 }`}
               >
                 <PanelsTopLeft className="w-5 h-5" />
-                Proyectos
+                {t("projects")}
               </Link>
             </li>
             <li className="nav__item">
               <Link
-                href="#work"
+                href="/#work"
                 className={`nav__link ${
                   activeSectionId === "work" ? "active-link" : ""
                 }`}
               >
                 <Briefcase className="w-5 h-5" />
-                Trabajo
+                {t("work")}
               </Link>
             </li>
             <li className="nav__item">
               <Link
-                href="#skills"
+                href="/#skills"
                 className={`nav__link ${
                   activeSectionId === "skills" ? "active-link" : ""
                 }`}
               >
                 <Trophy className="w-5 h-5" />
-                Habilidades
+                {t("skills")}
               </Link>
             </li>
             <li className="nav__item">
               <Link
-                href="#studies"
+                href="/#studies"
                 className={`nav__link ${
                   activeSectionId === "studies" ? "active-link" : ""
                 }`}
               >
                 <BookOpen className="w-5 h-5" />
-                Mis estudios
+                {t("studies")}
               </Link>
             </li>
             <li className="nav__item">
               <Link
-                href="#contact"
+                href="/#contact"
                 className={`nav__link ${
                   activeSectionId === "contact" ? "active-link" : ""
                 }`}
               >
                 <MessageCircle className="w-5 h-5" />
-                Contacto
+                {t("contact")}
               </Link>
             </li>
           </ul>
@@ -181,6 +184,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="nav__buttons">
+          <LanguageSelector />
           <button aria-label="Cambiar tema" type="button" onClick={toggleTheme} className="theme-toggle">
             {isDarkTheme ? (
               <Sun className="change-theme h-5 w-5" id="theme-button" />

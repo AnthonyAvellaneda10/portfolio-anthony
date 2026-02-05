@@ -1,20 +1,24 @@
+"use client";
+
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { ImWhatsapp } from "react-icons/im";
 import { RiMailSendLine, RiSendPlaneLine } from "react-icons/ri";
 import ContactForm from "../form/ContactForm";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("Contact");
 
   return (
     <>
-      <h2 className="section__title">Contacto</h2>
+      <h2 className="section__title">{t("title")}</h2>
       <span className="section__subtitle">💬📞</span>
 
       <div className="contact__container container__section grid section__border">
         <div className="contact__content">
           <h3 className="contact__title">
-            <MessageCircle className="h-5 w-5" /> Déjame un mensaje
+            <MessageCircle className="h-5 w-5" /> {t("leaveMessage")}
           </h3>
 
           <div className="contact__info">
@@ -33,7 +37,7 @@ export default function Contact() {
                 target="_blank"
                 className="contact__button"
               >
-                Escríbeme{" "}
+                {t("writeMe")}{" "}
                 <ArrowRight className="contact__button-icon h-3 w-3" />
               </a>
             </div>
@@ -49,7 +53,7 @@ export default function Contact() {
                 target="_blank"
                 className="contact__button"
               >
-                Escríbeme{" "}
+                {t("writeMe")}{" "}
                 <ArrowRight className="contact__button-icon h-3 w-3" />
               </a>
             </div>
@@ -62,11 +66,11 @@ export default function Contact() {
               <h3 className="contact__card-title">Whatsapp</h3>
 
               <a
-                href="https://api.whatsapp.com/send?phone=51923946801&text=Hola%20Anthony%2C%20me%20intereso%20mucho%20la%20p%C3%A1gina%20de%20tu%20portafolio%2C%20quisiera%20conversar%20contigo%20%F0%9F%98%80"
+                href={t("whatsappUrl")}
                 target="_blank"
                 className="contact__button"
               >
-                Escríbeme{" "}
+                {t("writeMe")}{" "}
                 <ArrowRight className="contact__button-icon h-3 w-3" />
               </a>
             </div>
@@ -75,7 +79,7 @@ export default function Contact() {
 
         <div className="contact__content">
           <h3 className="contact__title">
-          <RiSendPlaneLine className="h-5 w-5" /> Envíame un mensaje
+          <RiSendPlaneLine className="h-5 w-5" /> {t("sendMessage")}
           </h3>
 
           <ContactForm />

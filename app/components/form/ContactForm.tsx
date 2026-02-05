@@ -4,8 +4,10 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ContactForm = () => {
+  const t = useTranslations("Contact");
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -21,15 +23,15 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const errors = {
-    user_name: !formData.user_name ? "Su nombre completo es requerido" : "",
+    user_name: !formData.user_name ? t("errorName") : "",
     user_email: !formData.user_email
-      ? "El correo es requerido"
+      ? t("errorEmail")
       : !/^[a-zA-Z0-9._%+-À-ÿ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
           formData.user_email
         )
-      ? "Ingrese un correo electrónico válido"
+      ? t("errorEmailInvalid")
       : "",
-    user_message: !formData.user_message ? "Su mensaje es requerido" : "",
+    user_message: !formData.user_message ? t("errorMessage") : "",
   };
 
   const validateForm = () => {
@@ -61,7 +63,7 @@ const ContactForm = () => {
         { publicKey: "qcGN88mkYgX07GbuW" }
       )
       .then(() => {
-        toast.success("Mensaje enviado correctamente 🤙🏻✅");
+        toast.success(t("success"));
         setFormData({ user_name: "", user_email: "", user_message: "" });
         setIsTouched({
           user_name: false,
@@ -70,7 +72,7 @@ const ContactForm = () => {
         });
       })
       .catch((error) => {
-        toast.error("Ups, parece que hubo un error al enviar el mensaje ❌😔");
+        toast.error(t("errorSend"));
         console.error("FAILED...", error.text);
       })
       .finally(() => {
@@ -103,10 +105,10 @@ const ContactForm = () => {
     <form className="contact__form" id="contact-form" onSubmit={handleSubmit}>
       {/* Campo de nombre */}
       <div className="contact__form-div">
-        <label className="contact__form-tag">Nombres</label>
+        <label className="contact__form-tag">{t("name")}</label>
         <input
           type="text"
-          placeholder="Escribe tus nombres"
+          placeholder={t("placeholderName")}
           className="contact__form-input"
           id="contact-name"
           name="user_name"
@@ -123,10 +125,10 @@ const ContactForm = () => {
 
       {/* Campo de correo electrónico */}
       <div className="contact__form-div">
-        <label className="contact__form-tag">Correo</label>
+        <label className="contact__form-tag">{t("email")}</label>
         <input
           type="email"
-          placeholder="Escribe tu correo"
+          placeholder={t("placeholderEmail")}
           className="contact__form-input"
           id="contact-email"
           name="user_email"
@@ -142,11 +144,11 @@ const ContactForm = () => {
 
       {/* Campo de mensaje */}
       <div className="contact__form-div contact__form-area">
-        <label className="contact__form-tag">Mensaje</label>
+        <label className="contact__form-tag">{t("message")}</label>
         <textarea
           cols={30}
           rows={10}
-          placeholder="Escribe tu mensaje"
+          placeholder={t("placeholderMessage")}
           id="contact-project"
           className="contact__form-input"
           name="user_message"
@@ -174,7 +176,7 @@ const ContactForm = () => {
           {isLoading ? (
             <div className="flex items-center gap-2">
               <Loader2 className="animate-spin h-5 w-5" />
-              <span>Enviando...</span>
+              <span>{t("sending")}</span>
             </div>
           ) : (
             <>
@@ -194,7 +196,7 @@ const ContactForm = () => {
                   </svg>
                 </div>
               </div>
-              <span>Enviar mensaje</span>
+              <span>{t("send")}</span>
             </>
           )}
         </button>
