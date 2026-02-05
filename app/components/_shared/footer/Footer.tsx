@@ -1,4 +1,3 @@
-import { FaWhatsapp } from "react-icons/fa";
 import "./Footer.css";
 import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
@@ -15,7 +14,7 @@ const Footer = () => {
         <ul className="footer__list">
           <li>
             <a href="#home" className="footer__link">
-              Home
+              Inicio
             </a>
           </li>
 
@@ -52,17 +51,6 @@ const Footer = () => {
               aria-label="GitHub"
             >
               <FiGithub />
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://api.whatsapp.com/send?phone=51923946801&text=Hola%20Anthony%2C%20me%20intereso%20mucho%20la%20p%C3%A1gina%20de%20tu%20portafolio%2C%20quisiera%20conversar%20contigo%20%F0%9F%98%80"
-              target="_blank"
-              className="footer__social-link"
-              aria-label="Whatsapp"
-            >
-              <FaWhatsapp />
             </a>
           </li>
         </ul>
