@@ -1,7 +1,8 @@
 import Image from "next/image";
+import { getTranslations, getLocale } from "next-intl/server";
 
-async function fetchWorks() {
-  const workResponse = await fetch(`${process.env.BACKEND_URL}/api/work`, {
+async function fetchWorks(locale: string) {
+  const workResponse = await fetch(`${process.env.BACKEND_URL}/api/work?lang=${locale}`, {
     headers: {
       "x-origin": `${process.env.FRONTEND_URL}`,
     }
@@ -29,34 +30,18 @@ interface Experience {
   technologies: { name: string; url: string; alt: string }[];
 }
 
-const formatDate = (
+const isOngoing = (
   date: Experience["startDate"] | Experience["endDate"]
-): string => {
-  if (date === "Presente") return "Presente";
-  if (typeof date === "object") {
-    const monthNames = [
-      "Ene",
-      "Feb",
-      "Mar",
-      "Abr",
-      "May",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dic",
-    ];
-    return `${monthNames[date.month - 1]} ${date.year}`;
-  }
-  return "";
+): boolean => {
+  if (typeof date !== "string") return false;
+  const normalized = date.toLowerCase();
+  return normalized === "presente" || normalized === "present";
 };
 
 const getComparableDate = (
   date: Experience["startDate"] | Experience["endDate"]
 ): Date => {
-  if (date === "Presente") {
+  if (isOngoing(date)) {
     return new Date(); // Para experiencias en curso, usamos la fecha actual
   }
   if (typeof date === "object" && date !== null) {
@@ -66,15 +51,28 @@ const getComparableDate = (
 };
 
 export default async function Work() {
-  const { work } = await fetchWorks();
+  const locale = await getLocale();
+  const t = await getTranslations("Work");
+  const { work } = await fetchWorks(locale);
+
+  const formatDate = (
+    date: Experience["startDate"] | Experience["endDate"]
+  ): string => {
+    if (isOngoing(date)) return t("present");
+    if (typeof date === "object") {
+      const monthNames = t.raw("months");
+      return `${monthNames[date.month - 1]} ${date.year}`;
+    }
+    return "";
+  };
 
   // Ordenar las experiencias:
   // - Si ambas están en curso, se ordena por startDate (más reciente primero)
   // - Si solo una está en curso, se coloca primero
   // - Si ambas están finalizadas, se ordena por endDate (más reciente primero)
   const sortedExperiences = work.experiences.sort((a: Experience, b: Experience) => {
-    const aOngoing = a.endDate === "Presente";
-    const bOngoing = b.endDate === "Presente";
+    const aOngoing = isOngoing(a.endDate);
+    const bOngoing = isOngoing(b.endDate);
 
     if (aOngoing && bOngoing) {
       // Comparamos las fechas de inicio para trabajos en curso
@@ -92,7 +90,7 @@ export default async function Work() {
   return (
     <>
       <div className="container__section section__border">
-        <h2 className="section__title">Trabajo</h2>
+        <h2 className="section__title">{t("title")}</h2>
         <span className="section__subtitle">💼👨🏻‍💻</span>
 
         <div className="about__container work-experience">
@@ -149,7 +147,7 @@ export default async function Work() {
                 <dl className="flex flex-col sm:flex-row gap-1 mt-5">
                   <dt className="min-w-40">
                     <span className="block text-sm text-gray-500 dark:text-neutral-400">
-                      Tecnologías:
+                      {t("technologies")}
                     </span>
                   </dt>
                   <dd>
