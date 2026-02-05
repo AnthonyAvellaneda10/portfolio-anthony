@@ -2,15 +2,22 @@
 
 import { useEffect, useRef } from 'react';
 import './Typed.css';
+import { useTranslations } from "next-intl";
 
 export default function Typed() {
+  const t = useTranslations("Typed");
   const typedTextRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     const typedText = typedTextRef.current;
     if (!typedText) return;
 
-    const textArray = ['Anthony Avellaneda', 'desarrollador web'];
+    // We need to handle the array from translations correctly
+    // next-intl doesn't return arrays directly with t("key"), 
+    // it returns a string if it's a leaf node. 
+    // For arrays, we can use JSON.parse if we stored it as a string, 
+    // or use t.raw for raw objects.
+    const textArray = t.raw("roles");
     let textIndex = 0;
     let charIndex = 0;
     let isTyping = true;
@@ -40,11 +47,11 @@ export default function Typed() {
       }
     }
     typeAndErase();
-  }, []);
+  }, [t]);
 
   return (
     <h1 className="home__title" style={{ lineHeight: '1.5', marginBottom: '10px' }}>
-      Hola, soy <span ref={typedTextRef} className="typed" style={{ display: 'inline-block', marginBottom: '5px' }}></span>
+      {t("greeting")} <span ref={typedTextRef} className="typed" style={{ display: 'inline-block', marginBottom: '5px' }}></span>
       <span className="cursor"></span>
     </h1>
   );

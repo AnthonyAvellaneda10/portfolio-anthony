@@ -7,6 +7,7 @@ import "./Projects.css";
 import { Monitor, Settings, Search } from "lucide-react";
 import { BsGithub } from "react-icons/bs";
 import ShareMenu from "./ShareMenu";
+import { useTranslations, useLocale } from "next-intl";
 
 // Lightbox
 import Lightbox from "yet-another-react-lightbox";
@@ -27,8 +28,9 @@ interface Proyecto {
 }
 
 
-async function fetchProjects() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects`);
+async function fetchProjects(locale: string) {
+  // Use the locale to fetch translated content if the API supports it
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?lang=${locale}`);
   const projectsData = await res.json();
 
   // Add unique IDs to each project
@@ -60,6 +62,8 @@ const scrollToProjects = () => {
 };
 
 export default function Projects() {
+  const t = useTranslations("Projects");
+  const locale = useLocale();
   const [projects, setProjects] = useState<{
     frontend: Proyecto[];
     fullstack: Proyecto[];
@@ -82,7 +86,7 @@ export default function Projects() {
     async function loadProjects() {
       setIsLoading(true);
       try {
-        const data = await fetchProjects();
+        const data = await fetchProjects(locale);
         setProjects(data);
       } catch (error) {
         console.error("Error loading projects:", error);
@@ -91,7 +95,7 @@ export default function Projects() {
       }
     }
     loadProjects();
-  }, []);
+  }, [locale]);
 
   const displayedProjects =
     activeTab === "FullStack"
@@ -141,7 +145,7 @@ export default function Projects() {
 
   return (
     <>
-      <h2 className="section__title">Proyectos</h2>
+      <h2 className="section__title">{t("title")}</h2>
       <span className="section__subtitle">🎯🚀</span>
 
       <div className="containers">
@@ -214,7 +218,7 @@ export default function Projects() {
                       />
                       <button 
                         className="btn-icon"
-                        aria-label={`Ver galería de ${proyecto.appName}`}
+                        aria-label={`${t("gallery")} ${proyecto.appName}`}
                         onClick={(e) => openGallery(proyecto.mockup, e)}
                       >
                         <Search />
@@ -226,7 +230,7 @@ export default function Projects() {
                       <p className="card-text date">
                         🗓️{" "}
                         {new Date(proyecto.publicationDate).toLocaleDateString(
-                          "es"
+                          locale
                         )}
                       </p>
                       <p className="card-text">{proyecto.about}</p>
@@ -255,7 +259,7 @@ export default function Projects() {
                               <a
                                 href={proyecto.sourceCode}
                                 target="_blank"
-                                aria-label={`Proyecto ${proyecto.appName}`}
+                                aria-label={`${t("project")} ${proyecto.appName}`}
                                 rel="noopener noreferrer"
                               >
                                 <BsGithub className="w-6 h-6" />
@@ -278,7 +282,7 @@ export default function Projects() {
                             className="btn btn-primary"
                             aria-label={`Ver demo de ${proyecto.appName}`}
                           >
-                            Ver demo
+                            {t("viewDemo")}
                           </a>
                         )}
                       </div>
@@ -302,7 +306,7 @@ export default function Projects() {
                   disabled={currentPage === 1}
                   className="transition duration-300"
                 >
-                  Anterior
+                  {locale === 'es' ? 'Anterior' : 'Previous'}
                 </button>
                 <div id="pageNumbers">
                   {[...Array(totalPages)].map((_, index) => (
@@ -330,7 +334,7 @@ export default function Projects() {
                   disabled={currentPage === totalPages}
                   className="transition duration-300"
                 >
-                  Siguiente
+                  {locale === 'es' ? 'Siguiente' : 'Next'}
                 </button>
               </>
             )}

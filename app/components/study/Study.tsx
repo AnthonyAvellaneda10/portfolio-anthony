@@ -1,46 +1,51 @@
+"use client";
+
 import "./Study.css";
+import { useTranslations } from "next-intl";
 
 export default function Study() {
+  const t = useTranslations("Study");
+
   return (
     <div className="container__section  section__border">
-      <h2 className="section__title">Mis Estudios</h2>
-      <span className="section__subtitle">UNI</span>
+      <h2 className="section__title">{t("uni_short")}</h2>
+      <span className="section__subtitle">{t("uni")}</span>
 
       <div className="about__container studies container__section grid">
         <div>
-          <h3 className="home__info-title">CENTRO DE ESTUDIOS</h3>
+          <h3 className="home__info-title">{t("center")}</h3>
 
           <p className="home__info-description">
-            Universidad Nacional de Ingeniería (UNI)
+            {t("uni")}
           </p>
         </div>
 
         <div>
-          <h3 className="home__info-title">CARRERA</h3>
+          <h3 className="home__info-title">{t("career_label")}</h3>
 
-          <p className="home__info-description">Ingeniería de Sistemas</p>
+          <p className="home__info-description">{t("career")}</p>
         </div>
 
         <div>
-          <h3 className="home__info-title">ORDEN DE MÉRITO</h3>
+          <h3 className="home__info-title">{t("merit_label")}</h3>
 
-          <p className="home__info-description">Décimo Superior</p>
+          <p className="home__info-description">{t("merit")}</p>
         </div>
 
         <div>
-          <h3 className="home__info-title">CRÉDITOS ACUMULADOS</h3>
+          <h3 className="home__info-title">{t("credits_label")}</h3>
 
           <p className="home__info-description">216</p>
         </div>
 
         <div>
-          <h3 className="home__info-title">SITUACIÓN</h3>
+          <h3 className="home__info-title">{t("situation_label")}</h3>
 
-          <p className="home__info-description cycle-info">Bachiller</p>
+          <p className="home__info-description cycle-info">{t("situation")}</p>
         </div>
 
         <div>
-          <h3 className="home__info-title">TIEMPO</h3>
+          <h3 className="home__info-title">{t("time_label")}</h3>
 
           <p className="home__info-description">2020 - 2024</p>
         </div>
