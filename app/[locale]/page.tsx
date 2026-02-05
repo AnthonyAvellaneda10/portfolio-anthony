@@ -1,11 +1,11 @@
-import Contact from "./components/contact/Contact";
-import LayoutHome from "./components/home/LayoutHome";
-import Skills from "./components/skills/Skills";
-import Study from "./components/study/Study";
-import QRCode from "./components/qr/QRCode";
-import Work from "./components/work/Work";
-import Projects from "./components/projects/Projects";
-import ScrollUp from "./components/_shared/scrollUp/ScrollUp";
+import Contact from "../components/contact/Contact";
+import LayoutHome from "../components/home/LayoutHome";
+import Skills from "../components/skills/Skills";
+import Study from "../components/study/Study";
+import QRCode from "../components/qr/QRCode";
+import Work from "../components/work/Work";
+import Projects from "../components/projects/Projects";
+import ScrollUp from "../components/_shared/scrollUp/ScrollUp";
 
 export default function Home() {
   return (
