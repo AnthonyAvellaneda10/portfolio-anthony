@@ -2,31 +2,34 @@ import "./Footer.css";
 import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
 
+import { useTranslations } from "next-intl";
+
 const Footer = () => {
+  const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
   return (
     // <!--==================== FOOTER ====================-->
     <footer className="footer">
       <div className="footer__container container">
         <h1 className="footer__title">Anthony AP</h1>
-        <p>Ingeniero de Sistemas</p>
+        <p>{t("role")}</p>
 
         <ul className="footer__list">
           <li>
             <a href="#home" className="footer__link">
-              Inicio
+              {t("home")}
             </a>
           </li>
 
           <li>
             <a href="#skills" className="footer__link">
-              Habilidades
+              {t("skills")}
             </a>
           </li>
 
           <li>
             <a href="#projects" className="footer__link">
-              Proyectos
+              {t("projects")}
             </a>
           </li>
         </ul>
@@ -66,11 +69,11 @@ const Footer = () => {
             Anthony Avellaneda Paitán
           </a>
           {" "}
-          - Portafolio
+          - {t("portfolio")}
           <span className="current-year" id="current-year">
-            {currentYear}
+            {" "}{currentYear}
           </span>
-          . Todos los derechos reservados.
+          . {t("rights")}
         </p>
       </div>
     </footer>
