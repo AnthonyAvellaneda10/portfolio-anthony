@@ -1,17 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
+import { Loader2 } from "lucide-react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    user_message: "",
-  });
-
-  const [errors, setErrors] = useState({
     user_name: "",
     user_email: "",
     user_message: "",
@@ -23,21 +18,19 @@ const ContactForm = () => {
     user_message: false,
   });
 
-  useEffect(() => {
-    const newErrors = {
-      user_name: !formData.user_name ? "Your full name is required" : "",
-      user_email: !formData.user_email
-        ? "Email is required"
-        : !/^[a-zA-Z0-9._%+-À-ÿ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
-            formData.user_email
-          )
-        ? "Enter a valid email"
-        : "",
-      user_message: !formData.user_message ? "Your message is required" : "",
-    };
+  const [isLoading, setIsLoading] = useState(false);
 
-    setErrors(newErrors);
-  }, [formData.user_name, formData.user_email, formData.user_message]);
+  const errors = {
+    user_name: !formData.user_name ? "Su nombre completo es requerido" : "",
+    user_email: !formData.user_email
+      ? "El correo es requerido"
+      : !/^[a-zA-Z0-9._%+-À-ÿ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
+          formData.user_email
+        )
+      ? "Ingrese un correo electrónico válido"
+      : "",
+    user_message: !formData.user_message ? "Su mensaje es requerido" : "",
+  };
 
   const validateForm = () => {
     return Object.values(errors).every((error) => !error);
@@ -53,6 +46,8 @@ const ContactForm = () => {
     });
 
     if (!validateForm()) return;
+
+    setIsLoading(true);
 
     emailjs
       .send(
@@ -77,6 +72,9 @@ const ContactForm = () => {
       .catch((error) => {
         toast.error("Ups, parece que hubo un error al enviar el mensaje ❌😔");
         console.error("FAILED...", error.text);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -164,24 +162,41 @@ const ContactForm = () => {
 
       {/* Botón de envío */}
       <div className="buttons-send">
-        <button type="submit" className="buttons" disabled={!validateForm()}>
-          <div className="svg-wrapper-1">
-            <div className="svg-wrapper">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-              >
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path
-                  fill="currentColor"
-                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                ></path>
-              </svg>
+        <button
+          type="submit"
+          className="buttons"
+          disabled={!validateForm() || isLoading}
+          style={{
+            opacity: isLoading || !validateForm() ? 0.7 : 1,
+            cursor: isLoading || !validateForm() ? "not-allowed" : "pointer",
+          }}
+        >
+          {isLoading ? (
+            <div className="flex items-center gap-2">
+              <Loader2 className="animate-spin h-5 w-5" />
+              <span>Enviando...</span>
             </div>
-          </div>
-          <span>Enviar mensaje</span>
+          ) : (
+            <>
+              <div className="svg-wrapper-1">
+                <div className="svg-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path
+                      fill="currentColor"
+                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <span>Enviar mensaje</span>
+            </>
+          )}
         </button>
       </div>
     </form>

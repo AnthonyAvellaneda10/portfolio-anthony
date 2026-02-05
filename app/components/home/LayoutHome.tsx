@@ -1,12 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import "./LayoutHome.css";
-import { FaWhatsapp } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
-import { Mail, MapPin } from "lucide-react";
-import { IoBasketballOutline, IoFootballOutline } from "react-icons/io5";
-import { TbSwimming } from "react-icons/tb";
 import Typed from "../typed/Typed";
 
 export default function LayoutHome() {
@@ -29,47 +24,7 @@ export default function LayoutHome() {
           programación 🌟.
         </span>
 
-        <div className="container__info__description">
-          <div>
-            <h1 className="home__info-title">CONTACTO</h1>
-            <p className="home__info-description">
-              <span className="flex justify-center">
-                <MapPin className="m-[5px] h-4 w-4" /> Lima, Perú
-              </span>{" "}
-              <br />
-              <Link
-                href="mailto:anthony.avellaneda.p@uni.pe"
-                target="_blank"
-                className="api-gmail transition duration-300"
-              >
-                <Mail className="m-[5px] h-4 w-4" />
-                anthony.avellaneda.p@uni.pe
-              </Link>
-            </p>
-          </div>
-          <div>
-            <h1 className="home__info-title">PASATIEMPOS</h1>
-            <p className="home__info-numbers">
-              <span className="flex items-center gap-1">
-                <IoFootballOutline />
-                Fútbol
-              </span>
-            </p>
-            <p className="home__info-numbers">
-              <span className="flex items-center gap-1">
-              <TbSwimming />
-                Natación
-              </span>
-            </p>
-            <p className="home__info-numbers">
-              <span className="flex items-center gap-1">
-              <IoBasketballOutline />
-                Basket
-              </span>
-            </p>
-          </div>
-        </div>
-        <div className="text-center">
+        <div className="text-center mt-32">
           <a
             href="https://drive.google.com/file/d/18Fj5AnpRb_5RwN3GBHTDtqHfcQg78_8S/view"
             target="_blank"
@@ -140,16 +95,6 @@ export default function LayoutHome() {
                 aria-label="GitHub"
               >
                 <FiGithub />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://api.whatsapp.com/send?phone=51923946801&text=Hola%20Anthony%2C%20me%20intereso%20mucho%20la%20p%C3%A1gina%20de%20tu%20portafolio%2C%20quisiera%20conversar%20contigo%20%F0%9F%98%80"
-                target="_blank"
-                className="home__social-link"
-                aria-label="Whatsapp"
-              >
-                <FaWhatsapp />
               </a>
             </li>
           </ul>

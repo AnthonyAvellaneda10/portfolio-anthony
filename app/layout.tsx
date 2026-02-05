@@ -71,6 +71,8 @@ export const metadata = {
   charSet: "utf-8",
 };
 
+import { Toaster } from "react-hot-toast";
+
 export default function RootLayout({
   children,
 }: {
@@ -79,6 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lora.variable} ${roboto.variable}`}>
       <body>
+        <Toaster position="top-center" reverseOrder={false} />
         <Navbar />
         <main>{children}</main>
         <Footer />

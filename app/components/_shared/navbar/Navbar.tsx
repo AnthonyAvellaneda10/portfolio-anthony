@@ -115,7 +115,7 @@ export default function Navbar() {
                 }`}
               >
                 <House className="w-5 h-5" />
-                Home
+                Inicio
               </Link>
             </li>
             <li className="nav__item">
