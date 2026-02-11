@@ -215,6 +215,7 @@ export default function Projects() {
                         height={540}
                         className="img-cover"
                         loading="lazy"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <button 
                         className="btn-icon"
