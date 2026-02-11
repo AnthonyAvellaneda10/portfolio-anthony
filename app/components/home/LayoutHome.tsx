@@ -53,6 +53,7 @@ export default function LayoutHome() {
                 height={453} // Alto en píxeles
                 style={{ width: "340px", height: "auto" }} // Estilo responsive
                 priority
+                fetchPriority="high"
               />
             </div>
 
