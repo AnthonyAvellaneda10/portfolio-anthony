@@ -49,12 +49,12 @@ export default function LayoutHome() {
               <Image
                 src="/profile/perfil_anthony.avif"
                 alt="Perfil de Anthony Avellaneda Paitán"
-                width={340} // Ancho en píxeles
-                height={453} // Alto en píxeles
-                style={{ width: "340px", height: "auto" }} // Estilo responsive
+                width={340} // Ancho en píxeles (2x para retina)
+                height={453} // Alto en píxeles (2x para retina)
+                style={{ width: "100%", height: "auto" }} // Estilo responsive
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 340px"
+                sizes="170px"
               />
             </div>
 
