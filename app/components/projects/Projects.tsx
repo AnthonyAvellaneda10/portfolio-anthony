@@ -9,8 +9,13 @@ import { BsGithub } from "react-icons/bs";
 import ShareMenu from "./ShareMenu";
 import { useTranslations, useLocale } from "next-intl";
 
-// Lightbox
-import Lightbox from "yet-another-react-lightbox";
+import dynamic from "next/dynamic";
+
+// Lightbox - Dynamic import for code splitting
+const Lightbox = dynamic(() => import("yet-another-react-lightbox"), {
+  ssr: false,
+  loading: () => null,
+});
 import "yet-another-react-lightbox/styles.css";
 
 interface Proyecto {
