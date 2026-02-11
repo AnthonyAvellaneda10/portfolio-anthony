@@ -333,9 +333,6 @@ body.dark-theme {
   animation: loading 1000ms linear forwards;
 }
 
-[data-tilt] {
-  transition: var(--transition-3);
-}
 
 @keyframes loading {
   0% {
