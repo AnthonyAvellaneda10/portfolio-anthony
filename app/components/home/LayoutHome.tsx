@@ -54,6 +54,7 @@ export default function LayoutHome() {
                 style={{ width: "340px", height: "auto" }} // Estilo responsive
                 priority
                 fetchPriority="high"
+                sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 340px"
               />
             </div>
 
