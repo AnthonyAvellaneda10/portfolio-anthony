@@ -45,7 +45,7 @@ export default function LayoutHome() {
       <div className="image animate__animated animate__fadeInRightBig">
         <div className="home__data grid">
           <div className="home__blob grid">
-            <div className="home__perfil" data-tilt>
+            <div className="home__perfil">
               <Image
                 src="/profile/perfil_anthony.avif"
                 alt="Perfil de Anthony Avellaneda Paitán"
@@ -54,6 +54,7 @@ export default function LayoutHome() {
                 style={{ width: "340px", height: "auto" }} // Estilo responsive
                 priority
                 fetchPriority="high"
+                sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 340px"
               />
             </div>
 

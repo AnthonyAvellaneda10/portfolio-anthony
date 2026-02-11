@@ -1,8 +1,12 @@
+import dynamic from "next/dynamic";
 import Contact from "../components/contact/Contact";
 import LayoutHome from "../components/home/LayoutHome";
 import Skills from "../components/skills/Skills";
 import Study from "../components/study/Study";
-import QRCode from "../components/qr/QRCode";
+// Dynamic import for QRCode - code splitting
+const QRCode = dynamic(() => import("../components/qr/QRCode"), {
+  loading: () => null,
+});
 import Work from "../components/work/Work";
 import Projects from "../components/projects/Projects";
 import ScrollUp from "../components/_shared/scrollUp/ScrollUp";

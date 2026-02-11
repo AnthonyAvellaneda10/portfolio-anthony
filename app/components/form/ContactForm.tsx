@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -38,7 +37,7 @@ const ContactForm = () => {
     return Object.values(errors).every((error) => !error);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsTouched({
@@ -51,8 +50,11 @@ const ContactForm = () => {
 
     setIsLoading(true);
 
-    emailjs
-      .send(
+    try {
+      // Dynamic import - load emailjs only when sending
+      const emailjs = await import("@emailjs/browser");
+      
+      await emailjs.default.send(
         "service_x900uti",
         "template_1mqx9dc1",
         {
@@ -61,23 +63,21 @@ const ContactForm = () => {
           user_message: formData.user_message,
         },
         { publicKey: "qcGN88mkYgX07GbuW" }
-      )
-      .then(() => {
-        toast.success(t("success"));
-        setFormData({ user_name: "", user_email: "", user_message: "" });
-        setIsTouched({
-          user_name: false,
-          user_email: false,
-          user_message: false,
-        });
-      })
-      .catch((error) => {
-        toast.error(t("errorSend"));
-        console.error("FAILED...", error.text);
-      })
-      .finally(() => {
-        setIsLoading(false);
+      );
+      
+      toast.success(t("success"));
+      setFormData({ user_name: "", user_email: "", user_message: "" });
+      setIsTouched({
+        user_name: false,
+        user_email: false,
+        user_message: false,
       });
+    } catch (error: unknown) {
+      toast.error(t("errorSend"));
+      console.error("FAILED...", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (
