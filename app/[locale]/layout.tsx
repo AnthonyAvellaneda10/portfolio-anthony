@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const lora = Lora({
   weight: ["400", "500", "600"],
@@ -104,6 +105,7 @@ export default async function RootLayout({
           <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
       </body>
     </html>
   );
