@@ -8,6 +8,7 @@ import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
+import ClarityInit from '../components/clarity-init'
 
 const lora = Lora({
   weight: ["400", "500", "600"],
@@ -99,6 +100,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${lora.variable} ${roboto.variable}`}>
       <body>
+        <ClarityInit/>
         <NextIntlClientProvider messages={messages}>
           <Toaster position="top-center" reverseOrder={false} />
           <Navbar />
