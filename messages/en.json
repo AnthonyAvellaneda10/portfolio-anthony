@@ -23,7 +23,7 @@
     },
     "Study": {
         "uni": "National University of Engineering (UNI)",
-        "uni_short": "UNI",
+        "uni_short": "Studies",
         "center": "CENTER OF STUDIES",
         "career_label": "MAJOR",
         "career": "Systems Engineering",
@@ -64,12 +64,17 @@
     },
     "Skills": {
         "title": "Skills",
-        "subtitle": "My technical knowledge"
+        "subtitle": "My technical knowledge",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Database",
+        "tools": "Other tools"
     },
     "Contact": {
         "title": "Contact",
         "subtitle": "Leave me a message",
         "writeMe": "Write me",
+        "viewProjects": "View projects",
         "leaveMessage": "Leave me a message",
         "sendMessage": "Send me a message",
         "name": "Name",
@@ -86,7 +91,7 @@
         "errorMessage": "Your message is required",
         "success": "Message sent correctly 🤙🏻✅",
         "errorSend": "Oops, it seems there was an error sending the message ❌😔",
-        "whatsappUrl": "https://api.whatsapp.com/send?phone=51923946801&text=Hi%20Anthony%20I'm%20interested%20in%20your%20portfolio%20and%20would%20like%20to%20talk%20to%20you%20%F0%9F%98%80"
+        "whatsappUrl": "https://github.com/AnthonyAvellaneda10?tab=repositories"
     },
     "QRCode": {
         "title": "Share",

@@ -2,10 +2,10 @@
 
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
-import { ImWhatsapp } from "react-icons/im";
 import { RiMailSendLine, RiSendPlaneLine } from "react-icons/ri";
 import ContactForm from "../form/ContactForm";
 import { useTranslations } from "next-intl";
+import { FiGithub } from "react-icons/fi";
 
 export default function Contact() {
   const t = useTranslations("Contact");
@@ -25,7 +25,7 @@ export default function Contact() {
             <div className="contact__card">
               {/* <i className="bx bxl-linkedin-square contact__card-icon"></i> */}
               <span className="flex justify-center">
-                  <FaLinkedin className="contact__card-icon h-6 w-6" />
+                <FaLinkedin className="contact__card-icon h-6 w-6" />
               </span>
               <h3 className="contact__card-title">LinkedIn</h3>
               <span className="contact__card-data">
@@ -44,13 +44,12 @@ export default function Contact() {
 
             <div className="contact__card">
               <span className="flex justify-center">
-                  <RiMailSendLine className="contact__card-icon h-6 w-6" />
+                <RiMailSendLine className="contact__card-icon h-6 w-6" />
               </span>
               <h3 className="contact__card-title">Email</h3>
 
               <a
                 href="mailto:anthony.avellaneda.p@uni.pe"
-                target="_blank"
                 className="contact__button"
               >
                 {t("writeMe")}{" "}
@@ -61,16 +60,16 @@ export default function Contact() {
             <div className="contact__card">
               <i className="bx bxl-whatsapp contact__card-icon"></i>
               <span className="flex justify-center">
-                  <ImWhatsapp className="contact__card-icon h-6 w-6" />
+                <FiGithub className="contact__card-icon h-6 w-6" />
               </span>
-              <h3 className="contact__card-title">Whatsapp</h3>
+              <h3 className="contact__card-title">AnthonyAvellaneda10</h3>
 
               <a
                 href={t("whatsappUrl")}
                 target="_blank"
                 className="contact__button"
               >
-                {t("writeMe")}{" "}
+                {t("viewProjects")}{" "}
                 <ArrowRight className="contact__button-icon h-3 w-3" />
               </a>
             </div>
@@ -79,7 +78,7 @@ export default function Contact() {
 
         <div className="contact__content">
           <h3 className="contact__title">
-          <RiSendPlaneLine className="h-5 w-5" /> {t("sendMessage")}
+            <RiSendPlaneLine className="h-5 w-5" /> {t("sendMessage")}
           </h3>
 
           <ContactForm />

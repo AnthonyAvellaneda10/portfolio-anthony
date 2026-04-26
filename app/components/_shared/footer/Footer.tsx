@@ -3,6 +3,7 @@ import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
 
 import { useTranslations } from "next-intl";
+import { Mail } from "lucide-react";
 
 const Footer = () => {
   const t = useTranslations("Footer");
@@ -54,6 +55,15 @@ const Footer = () => {
               aria-label="GitHub"
             >
               <FiGithub />
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:anthonyavellaneda16@gmail.com"
+              className="footer__social-link"
+              aria-label="Email"
+            >
+              <Mail />
             </a>
           </li>
         </ul>

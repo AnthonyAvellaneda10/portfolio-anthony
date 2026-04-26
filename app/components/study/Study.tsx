@@ -9,7 +9,7 @@ export default function Study() {
   return (
     <div className="container__section  section__border">
       <h2 className="section__title">{t("uni_short")}</h2>
-      <span className="section__subtitle">{t("uni")}</span>
+      <span className="section__subtitle">👨🏻‍🎓📕</span>
 
       <div className="about__container studies container__section grid">
         <div>
