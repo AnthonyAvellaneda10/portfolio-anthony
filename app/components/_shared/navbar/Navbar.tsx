@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react";
 import "./Navbar.css";
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "./LanguageSelector";
 
@@ -66,8 +65,9 @@ export default function Navbar() {
       if (newActiveSectionId !== activeSectionId) {
         setActiveSectionId(newActiveSectionId);
 
-        // Actualizar la URL sin recargar la página
-        const newUrl = newActiveSectionId ? `#${newActiveSectionId}` : "/";
+        // Actualizar la URL conservando el pathname (idioma actual /es /en)
+        const pathname = window.location.pathname;
+        const newUrl = newActiveSectionId ? `${pathname}#${newActiveSectionId}` : pathname;
         window.history.replaceState(null, "", newUrl);
       }
     };
@@ -111,70 +111,76 @@ export default function Navbar() {
         >
           <ul className="nav__list grid">
             <li className="nav__item">
-              <Link
-                href="/#home"
+              <a
+                href="#home"
+                onClick={() => setIsMenuOpen(false)}
                 className={`nav__link ${
                   activeSectionId === "home" ? "active-link" : ""
                 }`}
               >
                 <House className="w-5 h-5" />
                 {t("home")}
-              </Link>
+              </a>
             </li>
             <li className="nav__item">
-              <Link
-                href="/#projects"
+              <a
+                href="#projects"
+                onClick={() => setIsMenuOpen(false)}
                 className={`nav__link ${
                   activeSectionId === "projects" ? "active-link" : ""
                 }`}
               >
                 <PanelsTopLeft className="w-5 h-5" />
                 {t("projects")}
-              </Link>
+              </a>
             </li>
             <li className="nav__item">
-              <Link
-                href="/#work"
+              <a
+                href="#work"
+                onClick={() => setIsMenuOpen(false)}
                 className={`nav__link ${
                   activeSectionId === "work" ? "active-link" : ""
                 }`}
               >
                 <Briefcase className="w-5 h-5" />
                 {t("work")}
-              </Link>
+              </a>
             </li>
             <li className="nav__item">
-              <Link
-                href="/#skills"
+              <a
+                href="#skills"
+                onClick={() => setIsMenuOpen(false)}
                 className={`nav__link ${
                   activeSectionId === "skills" ? "active-link" : ""
                 }`}
               >
                 <Trophy className="w-5 h-5" />
                 {t("skills")}
-              </Link>
+              </a>
             </li>
             <li className="nav__item">
-              <Link
-                href="/#studies"
+              <a
+                href="#studies"
+                onClick={() => setIsMenuOpen(false)}
                 className={`nav__link ${
                   activeSectionId === "studies" ? "active-link" : ""
                 }`}
               >
                 <BookOpen className="w-5 h-5" />
                 {t("studies")}
-              </Link>
+              </a>
             </li>
             <li className="nav__item">
-              <Link
-                href="/#contact"
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
                 className={`nav__link ${
                   activeSectionId === "contact" ? "active-link" : ""
                 }`}
               >
                 <MessageCircle className="w-5 h-5" />
                 {t("contact")}
-              </Link>
+              </a>
             </li>
           </ul>
 
