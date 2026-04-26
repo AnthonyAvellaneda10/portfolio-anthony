@@ -83,7 +83,7 @@ const QRCode = () => {
           size={256}
           bgColor={"#ffffff"}
           fgColor={"#000000"}
-          level={"L"}
+          level={"H"}
           imageSettings={{
             src: "/icons/work_logo.webp",
             x: undefined,
