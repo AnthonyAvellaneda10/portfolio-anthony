@@ -3,7 +3,7 @@
 import Image from "next/image";
 import "./Skills.css";
 import { PiBracketsCurlyBold } from "react-icons/pi";
-import { FaDesktop } from "react-icons/fa";
+import { FaDatabase, FaDesktop, FaTools } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
 export default function Skills() {
@@ -19,7 +19,7 @@ export default function Skills() {
         <div className="skills__content">
           <h3 className="skills__title">
             <PiBracketsCurlyBold className="w-4 h-4" />
-            Frontend
+            {t("frontend")}
           </h3>
 
           <div className="skills__info">
@@ -149,7 +149,7 @@ export default function Skills() {
         <div className="skills__content">
           <h3 className="skills__title">
             <FaDesktop />
-            Backend
+            {t("backend")}
           </h3>
 
           <div className="skills__info">
@@ -201,6 +201,36 @@ export default function Skills() {
             <div className="skills__data">
               <div className="skills__blob">
                 <Image
+                  src="/skills/spring-3.svg"
+                  alt="skills image"
+                  width={40} // Ancho en píxeles
+                  height={40} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "40px", height: "40px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Spring boot</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/flask-light.svg"
+                  alt="skills image"
+                  width={40} // Ancho en píxeles
+                  height={40} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "40px", height: "40px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Flask</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
                   src="/svg/express.svg"
                   alt="skills image"
                   width={40} // Ancho en píxeles
@@ -216,7 +246,7 @@ export default function Skills() {
             <div className="skills__data">
               <div className="skills__blob">
                 <Image
-                  src="/skills/spring-3.svg"
+                  src="/skills/nestjs.svg"
                   alt="skills image"
                   width={40} // Ancho en píxeles
                   height={40} // Alto en píxeles
@@ -225,9 +255,19 @@ export default function Skills() {
                 />
               </div>
 
-              <h3 className="skills__name">Spring boot</h3>
+              <h3 className="skills__name">NestJS</h3>
             </div>
+          </div>
+        </div>
 
+        {/* <!--==================== SKILLS 3 ====================--> */}
+        <div className="skills__content">
+          <h3 className="skills__title">
+            <FaDatabase />
+            {t("database")}
+          </h3>
+
+          <div className="skills__info">
             <div className="skills__data">
               <div className="skills__blob">
                 <Image
@@ -246,6 +286,51 @@ export default function Skills() {
             <div className="skills__data">
               <div className="skills__blob">
                 <Image
+                  src="/svg/oracle.svg"
+                  alt="skills image"
+                  width={45} // Ancho en píxeles
+                  height={35} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "45px", height: "35px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Oracle</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/svg/mariadb.svg"
+                  alt="skills image"
+                  width={52} // Ancho en píxeles
+                  height={35} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "52px", height: "35px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">MariaDB</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/svg/mysql-icon-light.svg"
+                  alt="skills image"
+                  width={35} // Ancho en píxeles
+                  height={35} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "35px", height: "35px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">MySQL</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
                   src="/skills/mongodb-icon-1-1.svg"
                   alt="skills image"
                   width={40} // Ancho en píxeles
@@ -256,6 +341,106 @@ export default function Skills() {
               </div>
 
               <h3 className="skills__name">MongoDB</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* <!--==================== SKILLS 4 ====================--> */}
+        <div className="skills__content">
+          <h3 className="skills__title">
+            <FaTools />
+            {t("tools")}
+          </h3>
+
+          <div className="skills__info">
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/aws_light.svg"
+                  alt="skills image"
+                  width={50} // Ancho en píxeles
+                  height={30} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "50px", height: "30px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">AWS</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/google-cloud.svg"
+                  alt="skills image"
+                  width={45} // Ancho en píxeles
+                  height={35} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "45px", height: "35px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">GCP</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/docker.svg"
+                  alt="skills image"
+                  width={40} // Ancho en píxeles
+                  height={41} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "40px", height: "41px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Docker</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/git.svg"
+                  alt="skills image"
+                  width={40} // Ancho en píxeles
+                  height={40} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "40px", height: "40px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Git</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/skills/postman.svg"
+                  alt="skills image"
+                  width={44} // Ancho en píxeles
+                  height={44} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "44px", height: "44px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Postman</h3>
+            </div>
+
+            <div className="skills__data">
+              <div className="skills__blob">
+                <Image
+                  src="/svg/swagger.svg"
+                  alt="skills image"
+                  width={44} // Ancho en píxeles
+                  height={44} // Alto en píxeles
+                  loading="lazy"
+                  style={{ width: "44px", height: "44px" }}
+                />
+              </div>
+
+              <h3 className="skills__name">Swagger</h3>
             </div>
           </div>
         </div>

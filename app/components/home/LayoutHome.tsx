@@ -6,6 +6,7 @@ import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
 import Typed from "../typed/Typed";
 import { useTranslations } from "next-intl";
+import { Mail } from "lucide-react";
 
 export default function LayoutHome() {
   const t = useTranslations("Home");
@@ -31,12 +32,12 @@ export default function LayoutHome() {
           >
             <div className="download">
               {t("downloadCV")}
-              <Image 
-              src="/icons/cv_logo.webp" 
-              alt="Logo de descargar CV" 
-              width={35}
-              height={30}
-              priority
+              <Image
+                src="/icons/cv_logo.webp"
+                alt="Logo de descargar CV"
+                width={35}
+                height={30}
+                priority
               />
             </div>
           </a>
@@ -96,6 +97,15 @@ export default function LayoutHome() {
                 aria-label="GitHub"
               >
                 <FiGithub />
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:anthony.avellaneda.p@uni.pe"
+                className="home__social-link"
+                aria-label="Email"
+              >
+                <Mail />
               </a>
             </li>
           </ul>
