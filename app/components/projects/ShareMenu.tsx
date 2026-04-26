@@ -67,7 +67,7 @@ export default function ShareMenu({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onToggle(); // Cierra el menú
+        onCloseOthers(); // Cierra el menú
       }
     };
 
@@ -78,11 +78,10 @@ export default function ShareMenu({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, onToggle]);
+  }, [isOpen, onCloseOthers]);
 
   // Manejar el clic en el toggle
   const handleToggle = () => {
-    onCloseOthers(); // Cierra otros menús abiertos
     onToggle(); // Abre o cierra este menú
   };
 
