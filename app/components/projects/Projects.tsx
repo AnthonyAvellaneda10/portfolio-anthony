@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import "./Projects.css";
-import { Monitor, Settings, Search } from "lucide-react";
+import { Monitor, Settings, Search, Cloud, Clock } from "lucide-react";
 import { BsGithub } from "react-icons/bs";
 import ShareMenu from "./ShareMenu";
 import { useTranslations, useLocale } from "next-intl";
@@ -37,26 +37,20 @@ async function fetchProjects(locale: string) {
   // Use the locale to fetch translated content if the API supports it
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?lang=${locale}`);
   const projectsData = await res.json();
+  const results = projectsData?.data?.results || {};
 
-  // Add unique IDs to each project
-  const frontendProjects = (projectsData.data.results.frontend || []).map(
-    (project: Proyecto, index: number) => ({
-      ...project,
-      id: `frontend-${index + 1}`,
-    })
-  );
+  const categorizedProjects: Record<string, Proyecto[]> = {};
 
-  const fullstackProjects = (projectsData.data.results.fullstack || []).map(
-    (project: Proyecto, index: number) => ({
-      ...project,
-      id: `fullstack-${index + 1}`,
-    })
-  );
+  for (const [category, projectsArray] of Object.entries(results)) {
+    if (Array.isArray(projectsArray)) {
+      categorizedProjects[category] = projectsArray.map((project: Proyecto, index: number) => ({
+        ...project,
+        id: `${category}-${index + 1}`
+      })).reverse();
+    }
+  }
 
-  return {
-    frontend: frontendProjects.reverse(),
-    fullstack: fullstackProjects.reverse(),
-  };
+  return categorizedProjects;
 }
 
 const scrollToProjects = () => {
@@ -69,14 +63,8 @@ const scrollToProjects = () => {
 export default function Projects() {
   const t = useTranslations("Projects");
   const locale = useLocale();
-  const [projects, setProjects] = useState<{
-    frontend: Proyecto[];
-    fullstack: Proyecto[];
-  }>({
-    frontend: [],
-    fullstack: [],
-  });
-  const [activeTab, setActiveTab] = useState("FullStack");
+  const [projects, setProjects] = useState<Record<string, Proyecto[]>>({});
+  const [activeTab, setActiveTab] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -93,6 +81,13 @@ export default function Projects() {
       try {
         const data = await fetchProjects(locale);
         setProjects(data);
+        const categories = Object.keys(data);
+        if (categories.length > 0) {
+          setActiveTab(prev => {
+            if (categories.includes(prev) && prev !== "") return prev;
+            return categories.includes("fullstack") ? "fullstack" : categories[0];
+          });
+        }
       } catch (error) {
         console.error("Error loading projects:", error);
       } finally {
@@ -102,20 +97,33 @@ export default function Projects() {
     loadProjects();
   }, [locale]);
 
-  const displayedProjects =
-    activeTab === "FullStack"
-      ? projects.fullstack ?? []
-      : projects.frontend ?? [];
+  const displayedProjects = projects[activeTab] ?? [];
   const totalPages = Math.ceil(displayedProjects.length / itemsPerPage);
   const paginatedProjects = displayedProjects.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
+  // Mapeo de Nombres (Traducción)
+  const getTabLabel = (key: string) => {
+    const labels: Record<string, string> = {
+      frontend: "Frontend",
+      fullstack: "Fullstack",
+      cloud: "Cloud",
+      inDevelopment: locale === "es" ? "En Desarrollo" : "In Development"
+    };
+    return labels[key] || key.charAt(0).toUpperCase() + key.slice(1);
+  };
+
   // Mapeo de íconos
-  const tabIcons = {
-    FullStack: Settings,
-    Frontend: Monitor,
+  const getTabIcon = (key: string) => {
+    const icons: Record<string, React.ElementType> = {
+      fullstack: Settings,
+      frontend: Monitor,
+      cloud: Cloud,
+      inDevelopment: Clock
+    };
+    return icons[key] || Settings; // default icon
   };
 
   // Función para alternar el menú
@@ -166,23 +174,25 @@ export default function Projects() {
                   <div key={`tab-skeleton-${index}`} className="skeleton skeleton-tab mb-4" />
                 ))
               ) : (
-                (["FullStack", "Frontend"] as const).map((tab) => {
-                  const Icon = tabIcons[tab]; // Obtener el ícono correspondiente
+                Object.keys(projects)
+                  .sort((a, b) => (a === "fullstack" ? -1 : b === "fullstack" ? 1 : 0))
+                  .map((tabKey) => {
+                  const Icon = getTabIcon(tabKey);
                   return (
                     <button
-                      key={tab}
+                      key={tabKey}
                       className={`transition-all duration-300 px-1 pb-4 text-sm font-medium border-b-2 flex items-center gap-2 ${
-                        activeTab === tab
+                        activeTab === tabKey
                           ? "border-sky-500 text-[#027BBA] pointer-events-none"
                           : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer"
                       }`}
                       onClick={() => {
-                        setActiveTab(tab);
+                        setActiveTab(tabKey);
                         setCurrentPage(1); // Resetear paginación al cambiar de pestaña
                       }}
                     >
-                      <Icon className="h-5 w-5" /> {/* Renderizar el ícono */}
-                      {tab}
+                      <Icon className="h-5 w-5" />
+                      {getTabLabel(tabKey)}
                     </button>
                   );
                 })
