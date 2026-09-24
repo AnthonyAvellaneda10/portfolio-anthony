@@ -101,7 +101,7 @@ export default function LayoutHome() {
             </li>
             <li>
               <a
-                href="mailto:anthony.avellaneda.p@uni.pe"
+                href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
                 className="home__social-link"
                 aria-label="Email"
               >

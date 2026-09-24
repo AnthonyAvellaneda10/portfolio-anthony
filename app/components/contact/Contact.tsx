@@ -49,7 +49,7 @@ export default function Contact() {
               <h3 className="contact__card-title">Email</h3>
 
               <a
-                href="mailto:anthony.avellaneda.p@uni.pe"
+                href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
                 className="contact__button"
               >
                 {t("writeMe")}{" "}

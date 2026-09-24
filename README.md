@@ -18,10 +18,10 @@ A solution driven application for Magio Academy, addressing the lack of timely c
 
 If you want to work with me on a project or just chat, don't hesitate to contact me!
 
-- Email: [anthony.avellaneda.p@uni.pe](mailto:anthony.avellaneda.p@uni.pe)
+- Email: [anthonyavellaneda16@gmail.com](mailto:anthonyavellaneda16@gmail.com)
 - LinkedIn: [Anthony Avellaneda Paitán](https://www.linkedin.com/in/AnthonyAvellanedaPaitán/)
 - Twitter: [**@TomStark08**](https://twitter.com/TomStark08)
-- WhatsApp: [+51 923 946 801](https://api.whatsapp.com/send?phone=51923946801)
+- WhatsApp: [+51 940 698 961](https://api.whatsapp.com/send?phone=51940698961)
 
 ## About me
 
